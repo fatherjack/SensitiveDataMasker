@@ -23,10 +23,29 @@ Currently the script recognises data that represents the following objects
 - "Database"
 - "Domain"  
 
-## Example
+### Caveats
+
+- If the supplied string is part of a larger (non-sensitive) string it will be replaced in all contexts.
+- If the replacement (non-sensitive) string is already a string that is found in the original file then searching for the replacement string will result 
+in finding occurrences that represent the places where the sensitive content was replaced as well as the places where the original file already contained the non-sensitive value.
+
+
+
+### Examples
 
 ````powershell
 Assert-DataMask C:\Temp\TVP\Destination
 
 # This will mask all sensitive values in files found in the specified directory
+````
+
+````text
+SensitiveValues.txt 
+
+ItemValue, ItemType, Mask
+Ultron, System,
+127.0.0.1, IP,
+Jarvis, Server,
+Adventureworks, Database,
+www.contoso.com, url,
 ````
