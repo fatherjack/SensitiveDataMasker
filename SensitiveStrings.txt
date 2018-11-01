@@ -1,0 +1,4 @@
+ItemName, ItemType, Mask
+AdventureWorks2016, Database,
+MyComputerName, Server,
+127.0.0.1, IP,
