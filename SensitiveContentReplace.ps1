@@ -70,11 +70,12 @@ function Assert-DataMask {
             Write-Verbose "Setting Mask value for $Secret"
             switch ($Secret.ItemType) {
                 "Server" { $Secret.Mask = "Server$x" }
-                "Account" { $Secret.Mask = "Account$x"}
-                "IP" { $Secret.Mask = "IP$x"}
-                "System" { $Secret.Mask = "System$x"}
-                "Database" { $Secret.Mask = "Database$x"}
-                #"ToBeDefined" { $Secret.Mask = "Value$x"}
+                "Account" { $Secret.Mask = "Account$x" }
+                "IP" { $Secret.Mask = "192.168.0.IP$x" } 
+                "System" { $Secret.Mask = "System$x" }
+                "URL" { $Secret.Mask = "URL$x" }
+                "Database" { $Secret.Mask = "Database$x" }
+                #"ToBeDefined" { $Secret.Mask = "Value$x" }
                 default {Write-Warning "Found item type $($Secret.ItemType) in the SensitiveStrings file which has no mask algorithm. Please edit the function to provide a suitable mask"}
             }
             $x++
